@@ -1,4 +1,4 @@
-# Know Your Rights — Truth Teller Justice Library
+# Know Your Rights — Truth Teller Justice Library 
 
 A free, state-by-state app with scripts for what to say during a traffic
 stop, street stop, or home visit. Georgia is open as a free preview; other
