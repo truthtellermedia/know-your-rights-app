@@ -521,9 +521,22 @@ export default function RightsApp() {
       /* storage unavailable, continue anyway */
     }
 
-    // TODO: also send this email to your email list provider here
-    // (Klaviyo, Mailchimp, etc.) via their API or a form submission,
-    // tagged e.g. "rights-app-signup", so it feeds your nurture sequence.
+    // // Send captured email to Google Sheet (via Apps Script Web App)
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbz4shWjyT2UGa1dTjfvxfzl2zWOwf1jS1qkuL-6iwwl1g3CVBbbcyGB9rex0Rn0FEM/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({ email }),
+        }
+      );
+    } catch (e) {
+      // Fails silently — unlock already succeeded locally either way
+    }
+    // 
+    // 
     if (pendingState) {
       setActive(pendingState);
       setScenarioIdx(0);
